@@ -1,18 +1,38 @@
-BIN :=
+BIN = myapp
 
-REGISTRY ?=
+VERSION = 2.0.1
 
-VERSION ?=
+CC = g
 
-SRC_DIRS :=
+all: build run test
 
-ALL_PLATFOMS := linux/amd84
 
-OS := $(if $(GOOS), $(GOOS), $(shell go env GOOS))
-ARCH := $(if $(GOARCH),$(GOARCH),$(shell go env GOARCH))
+build::
+	@echo Building the whole project
+	go build -o ${BIN} .
 
-BASEIMAGE ?=
+build::
+	@echo Checking double colon rule
 
-TAG := $(VERSION)_$(OS)_$(ARCH)
+test: test.o
+	@echo This is test1
+	cc test.o -o output
 
-BUILD_IMAGE ?= go-rest-api: 
+test.o: test.c
+	@echo This is test2
+	cc -c test.c -o test.o
+
+test.c:
+	echo "int main() {return 0;}" > test.c
+
+run:
+	@echo Running the binary
+	./${BIN}
+
+
+clean:
+	rm ${BIN}
+	rm *.o
+	rm test.c
+
+
