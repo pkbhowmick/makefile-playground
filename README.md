@@ -39,6 +39,12 @@ For example, CC := ${GCC} ${FLAGS} during the first encounter is evaluated to gc
 
 - Appending (+=): Assume that CC = gcc then the appending operator is used like CC += -W then CC now has the value gg -W
 
-Ref:
-- [StackOverflow answer](https://stackoverflow.com/questions/4879592/whats-the-difference-between-and-in-makefile)
+Ref: [StackOverflow answer](https://stackoverflow.com/questions/4879592/whats-the-difference-between-and-in-makefile)
 
+### Automatic variable and wildcard
+Both * and % are called wildcards in Make, but they mean entirely different things.
+- * Wildcard: "*" search your filesystem for matching filenames.
+
+- % Wildcard: 
+
+Ref: [makefile tutorial](https://makefiletutorial.com/#automatic-variables-and-wildcards)
