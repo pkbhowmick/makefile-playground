@@ -27,3 +27,7 @@ show-file:
 show-version:
 	@echo ${version}
 
+build-%-image:
+	@echo $*
+
+

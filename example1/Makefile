@@ -1,8 +1,8 @@
-.PHONY : all create clean
+.PHONY: all create clean
 
 all: create  edit
 
-create: 
+create:
 	@echo "Creating a simple test file"
 	touch test.txt
 
@@ -13,4 +13,7 @@ clean:
 edit: test.txt
 	@echo "Editing test.txt"
 	echo "abcdef" > test.txt
+
+build-%-image:
+	@echo $*
 

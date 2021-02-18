@@ -1,0 +1,4 @@
+foo: foo.o bar.o
+	cc -o foo foo.o bar.o $(CFLAGS) $(LDFLAGS)
+
+
