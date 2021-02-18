@@ -59,10 +59,16 @@ or,
 ${function arguments}
 ```
 ### Using Implicit Rules
+If make don't find a rule for a target, then it'll looking for an implicit rule for it. 
+Example: 
+```shell
+.c:
+        $(CC) $(CFLAGS) $@.c $(LDFLAGS) -o $@
+foo: foo.c
+         cc foo.c -o foo
+```
+Here we will set an implicit rules for all files with .c extension. That's why target foo will be made without having foo.o present.
 
-
-
-
-Tutorials:
+### Tutorials:
 - [Makefile tutorial](https://makefiletutorial.com/)
 - [gnu.org book](https://www.gnu.org/software/make/manual/html_node/)
